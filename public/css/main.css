@@ -1,0 +1,57 @@
+body
+{
+    font-family: Arial;
+    font-size: 16px;
+
+    margin: 0;
+    padding: 0;
+
+    -webkit-font-smoothing: antialiased;
+       -moz-font-smoothing: antialiased;
+         -o-font-smoothing: antialiased;
+        -ms-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+}
+
+.table
+{
+    display: table;
+
+    width: 100%;
+    height: 100%;
+}
+
+.table .cell
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+.grid
+{
+    margin: 0 auto;
+}
+
+td
+{
+    position: relative;
+
+    padding: 20px;
+
+    cursor: pointer;
+
+    border: 1px solid #000;
+
+    text-align: center;
+}
+
+td.black
+{
+    background-color: #000;
+    color: #fff;
+}
+
+td.overlay.blue {
+    background-color: rgba(0, 150, 255, .5);
+}

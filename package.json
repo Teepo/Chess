@@ -1,0 +1,14 @@
+{
+    "scripts" : {
+
+        "start"        : "npm run js_maker & npm run sass_watcher & npm run server",
+
+        "server"       : "./node_modules/serve/bin/serve ./public/",
+        "js_maker"     : "webpack --progress --colors --watch --debug",
+        "sass_watcher" : "sass --watch ./public/css/"
+    },
+    "dependencies" : {
+        "jade"  : "1.11.0",
+        "serve" : "1.4.0"
+    }
+}
