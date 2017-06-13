@@ -1,6 +1,6 @@
-import Grid from './../components/Grid.js';
+import { Grid } from './components/Grid.js';
 
-export default class App extends React.Component {
+class Chess extends React.Component {
 
     constructor(props) {
 
@@ -25,4 +25,4 @@ export default class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Chess />, document.getElementById('app'));

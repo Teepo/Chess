@@ -1,4 +1,4 @@
-export default class Knight extends React.Component {
+export class Knight extends React.Component {
 
     constructor(props) {
         super(props)
@@ -16,6 +16,6 @@ export default class Knight extends React.Component {
     }
 
     render() {
-        return 'Knight';
+        return <span>Knight</span>;
     }
 }

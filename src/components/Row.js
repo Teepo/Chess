@@ -1,6 +1,6 @@
-import Cell from './Cell.js';
+import { Cell } from './Cell.js';
 
-export default class Row extends React.Component {
+export class Row extends React.Component {
 
     constructor(props) {
 

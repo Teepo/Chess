@@ -1,17 +1,13 @@
-var glob = require('glob');
-
 module.exports = {
-    entry : glob.sync("./app/**/*.js"),
+    entry : './src/Chess.js',
     output: {
-        path: './public/js',
-        filename: 'bundle.js'
+        path: __dirname + '/public/js/',
+        filename: 'bundle.js',
+        library: 'Chess'
     },
 
     resolve: {
-        extensions: [
-            "",
-            ".js"
-        ]
+        extensions: [".js"]
     },
 
     module: {
@@ -19,9 +15,9 @@ module.exports = {
             {
                 test : /\.js?/,
                 exclude: /node_modules/,
-                loader : 'babel',
+                loader : 'babel-loader',
                 query: {
-                    presets: ['react', 'es2015']
+                    presets: ['react', 'env']
                 }
             }
         ]

@@ -1,20 +1,21 @@
-import Row from './Row.js';
+import { Row } from './Row.js';
 
 // :piece:
-import Rook   from './pieces/Rook.js';
-import Knight from './pieces/Knight.js';
-import Bishop from './pieces/Bishop.js';
-import Queen  from './pieces/Queen.js';
-import King   from './pieces/King.js';
-import Pawn   from './pieces/Pawn.js';
+import { Rook   } from './pieces/Rook.js';
+import { Knight } from './pieces/Knight.js';
+import { Bishop } from './pieces/Bishop.js';
+import { Queen  } from './pieces/Queen.js';
+import { King   } from './pieces/King.js';
+import { Pawn   } from './pieces/Pawn.js';
 
-export default class Grid extends React.Component {
+export class Grid extends React.Component {
 
     constructor(props) {
 
-        super(props)
+        super(props);
 
         this.state = {
+
             gridSize : {
                 x : 8,
                 y : 8

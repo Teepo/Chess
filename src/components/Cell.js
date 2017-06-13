@@ -1,11 +1,20 @@
-import EmptyPiece from './pieces/EmptyPiece.js';
-import Knight     from './pieces/Knight.js';
+// :piece:
+import { Rook   } from './pieces/Rook.js';
+import { Knight } from './pieces/Knight.js';
+import { Bishop } from './pieces/Bishop.js';
+import { Queen  } from './pieces/Queen.js';
+import { King   } from './pieces/King.js';
+import { Pawn   } from './pieces/Pawn.js';
 
-var Cell = React.createClass({
+import { EmptyPiece } from './pieces/EmptyPiece.js';
 
-    getInitialState: function() {
+export class Cell extends React.Component {
 
-        return {
+    constructor(props) {
+
+        super(props);
+
+        this.state = {
 
             isBlack : false,
             isHighlight: false,
@@ -20,9 +29,9 @@ var Cell = React.createClass({
 
             piece : this.props.Grid.state.map[this.props.x][this.props.y]
         };
-    },
+    }
 
-    componentWillMount: function() {
+    componentWillMount() {
 
         // cell color toggling
         if (((this.state.coords.x % 2 === 0) && (this.state.coords.y % 2 > 0))
@@ -32,31 +41,30 @@ var Cell = React.createClass({
                 isBlack : true
             });
         }
+    }
 
-    },
-
-    render: function() {
+    render() {
 
         if (typeof this.props.App.cells[this.state.coords.x] === "undefined")
             this.props.App.cells[this.state.coords.x] = [];
 
         this.props.App.cells[this.state.coords.x][this.state.coords.y] = this;
 
-        var cellClassName = this.state.isBlack ? 'black' : '';
+        let cellClassName = this.state.isBlack ? 'black' : '';
             cellClassName += this.state.isHighlight ? ' overlay blue' : '';
 
-        var $piece = null;
+        let $piece;
         if (this.state.piece !== null
           && typeof this.state.piece !== "undefined")
         {
             // hmmmm ... !
             $piece = (new this.state.piece).render();
         }
-        else
+        else {
             $piece = <EmptyPiece Cell={this} />
+        }
 
         return <td className={cellClassName} onClick={this.onClick}>{$piece}</td>;
     }
-});
 
-module.exports = Cell;
+}
