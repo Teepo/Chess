@@ -1,12 +1,4 @@
-// :piece:
-import { Rook   } from './pieces/Rook.js';
-import { Knight } from './pieces/Knight.js';
-import { Bishop } from './pieces/Bishop.js';
-import { Queen  } from './pieces/Queen.js';
-import { King   } from './pieces/King.js';
-import { Pawn   } from './pieces/Pawn.js';
-
-import { EmptyPiece } from './pieces/EmptyPiece.js';
+import { EmptyPiece } from './pieces/EmptyPiece';
 
 export class Cell extends React.Component {
 
@@ -58,7 +50,7 @@ export class Cell extends React.Component {
           && typeof this.state.piece !== "undefined")
         {
             // hmmmm ... !
-            $piece = (new this.state.piece).render();
+            $piece = <this.state.piece cell={this.state} />
         }
         else {
             $piece = <EmptyPiece Cell={this} />

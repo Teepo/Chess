@@ -1,17 +1,17 @@
-SPRITE = ./public/images/pieces.svg
+SPRITE = ./public/svg/sprite.svg
 
-ALL_SVG := ./public/images/pieces/white/king.svg \
-           ./public/images/pieces/white/queen.svg \
-           ./public/images/pieces/white/rook.svg \
-           ./public/images/pieces/white/bishop.svg \
-           ./public/images/pieces/white/knight.svg \
-           ./public/images/pieces/white/pawn.svg \
-           ./public/images/pieces/black/king.svg \
-           ./public/images/pieces/black/queen.svg \
-           ./public/images/pieces/black/rook.svg \
-           ./public/images/pieces/black/bishop.svg \
-           ./public/images/pieces/black/knight.svg \
-           ./public/images/pieces/black/pawn.svg
+ALL_SVG := ./public/svg/pieces/white/king.svg \
+           ./public/svg/pieces/white/queen.svg \
+           ./public/svg/pieces/white/rook.svg \
+           ./public/svg/pieces/white/bishop.svg \
+           ./public/svg/pieces/white/knight.svg \
+           ./public/svg/pieces/white/pawn.svg \
+           ./public/svg/pieces/black/king.svg \
+           ./public/svg/pieces/black/queen.svg \
+           ./public/svg/pieces/black/rook.svg \
+           ./public/svg/pieces/black/bishop.svg \
+           ./public/svg/pieces/black/knight.svg \
+           ./public/svg/pieces/black/pawn.svg
 
 .PHONY: all
 all: $(SPRITE)

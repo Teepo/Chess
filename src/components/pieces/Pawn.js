@@ -1,3 +1,5 @@
+import { Svg } from './../../partials/Svg';
+
 export class Pawn extends React.Component {
 
     constructor(props) {
@@ -6,6 +8,6 @@ export class Pawn extends React.Component {
     }
 
     render() {
-        return <span>Pawn</span>
+        return <Svg name={ `pawn${this.props.cell.isBlack ? '-black' : '-white'}` } />;
     }
 }

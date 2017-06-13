@@ -1,5 +1,4 @@
-body
-{
+body {
     font-family: Arial;
     font-size: 16px;
 
@@ -13,42 +12,42 @@ body
             font-smoothing: antialiased;
 }
 
-.table
-{
-    display: table;
+.table {
 
+    display: table;
     width: 100%;
     height: 100%;
 }
 
-.table .cell
-{
-    display: table-cell;
+.table .cell {
 
+    display: table-cell;
     vertical-align: middle;
 }
 
-.grid
-{
+.grid {
     margin: 0 auto;
 }
 
-td
-{
+td {
     position: relative;
 
-    padding: 20px;
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box;
 
     cursor: pointer;
 
+    background-color: #f2bf8a;
     border: 1px solid #000;
 
     text-align: center;
+    vertical-align: middle;
 }
 
-td.black
-{
-    background-color: #000;
+td.black {
+    background-color: #8e4b39;
     color: #fff;
 }
 

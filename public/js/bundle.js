@@ -77,8 +77,11 @@ var Chess =
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Bishop = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Svg = __webpack_require__(11);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -89,20 +92,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Bishop = exports.Bishop = function (_React$Component) {
     _inherits(Bishop, _React$Component);
 
-    function Bishop() {
+    function Bishop(props) {
         _classCallCheck(this, Bishop);
 
-        return _possibleConstructorReturn(this, (Bishop.__proto__ || Object.getPrototypeOf(Bishop)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Bishop.__proto__ || Object.getPrototypeOf(Bishop)).call(this, props));
     }
 
     _createClass(Bishop, [{
-        key: "render",
+        key: 'render',
         value: function render() {
-            return React.createElement(
-                "span",
-                null,
-                "Bishop"
-            );
+            return React.createElement(_Svg.Svg, { name: 'bishop' + (this.props.cell.isBlack ? '-black' : '-white') });
         }
     }]);
 
@@ -119,8 +118,11 @@ var Bishop = exports.Bishop = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.King = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Svg = __webpack_require__(11);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -131,20 +133,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var King = exports.King = function (_React$Component) {
     _inherits(King, _React$Component);
 
-    function King() {
+    function King(props) {
         _classCallCheck(this, King);
 
-        return _possibleConstructorReturn(this, (King.__proto__ || Object.getPrototypeOf(King)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (King.__proto__ || Object.getPrototypeOf(King)).call(this, props));
     }
 
     _createClass(King, [{
-        key: "render",
+        key: 'render',
         value: function render() {
-            return React.createElement(
-                "span",
-                null,
-                "King"
-            );
+            return React.createElement(_Svg.Svg, { name: 'king' + (this.props.cell.isBlack ? '-black' : '-white') });
         }
     }]);
 
@@ -161,8 +159,11 @@ var King = exports.King = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Knight = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Svg = __webpack_require__(11);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -176,30 +177,13 @@ var Knight = exports.Knight = function (_React$Component) {
     function Knight(props) {
         _classCallCheck(this, Knight);
 
-        var _this = _possibleConstructorReturn(this, (Knight.__proto__ || Object.getPrototypeOf(Knight)).call(this, props));
-
-        _this.state = { Cell: null };
-
-        _this.onClick = _this.onClick.bind(_this);
-        return _this;
+        return _possibleConstructorReturn(this, (Knight.__proto__ || Object.getPrototypeOf(Knight)).call(this, props));
     }
 
     _createClass(Knight, [{
-        key: "onClick",
-        value: function onClick() {
-
-            this.props.Cell.setState({
-                isHighlight: !this.props.Cell.state.isHighlight
-            });
-        }
-    }, {
-        key: "render",
+        key: 'render',
         value: function render() {
-            return React.createElement(
-                "span",
-                null,
-                "Knight"
-            );
+            return React.createElement(_Svg.Svg, { name: 'knight' + (this.props.cell.isBlack ? '-black' : '-white') });
         }
     }]);
 
@@ -216,8 +200,11 @@ var Knight = exports.Knight = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Pawn = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Svg = __webpack_require__(11);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -235,13 +222,9 @@ var Pawn = exports.Pawn = function (_React$Component) {
     }
 
     _createClass(Pawn, [{
-        key: "render",
+        key: 'render',
         value: function render() {
-            return React.createElement(
-                "span",
-                null,
-                "Pawn"
-            );
+            return React.createElement(_Svg.Svg, { name: 'pawn' + (this.props.cell.isBlack ? '-black' : '-white') });
         }
     }]);
 
@@ -258,8 +241,11 @@ var Pawn = exports.Pawn = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Queen = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Svg = __webpack_require__(11);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -270,20 +256,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Queen = exports.Queen = function (_React$Component) {
     _inherits(Queen, _React$Component);
 
-    function Queen() {
+    function Queen(props) {
         _classCallCheck(this, Queen);
 
-        return _possibleConstructorReturn(this, (Queen.__proto__ || Object.getPrototypeOf(Queen)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Queen.__proto__ || Object.getPrototypeOf(Queen)).call(this, props));
     }
 
     _createClass(Queen, [{
-        key: "render",
+        key: 'render',
         value: function render() {
-            return React.createElement(
-                "span",
-                null,
-                "Queen"
-            );
+            return React.createElement(_Svg.Svg, { name: 'queen' + (this.props.cell.isBlack ? '-black' : '-white') });
         }
     }]);
 
@@ -300,8 +282,11 @@ var Queen = exports.Queen = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Rook = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Svg = __webpack_require__(11);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -312,20 +297,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Rook = exports.Rook = function (_React$Component) {
     _inherits(Rook, _React$Component);
 
-    function Rook() {
+    function Rook(props) {
         _classCallCheck(this, Rook);
 
-        return _possibleConstructorReturn(this, (Rook.__proto__ || Object.getPrototypeOf(Rook)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Rook.__proto__ || Object.getPrototypeOf(Rook)).call(this, props));
     }
 
     _createClass(Rook, [{
-        key: "render",
+        key: 'render',
         value: function render() {
-            return React.createElement(
-                "span",
-                null,
-                "Rook"
-            );
+            return React.createElement(_Svg.Svg, { name: 'rook' + (this.props.cell.isBlack ? '-black' : '-white') });
         }
     }]);
 
@@ -561,26 +542,13 @@ exports.Cell = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Rook = __webpack_require__(5);
-
-var _Knight = __webpack_require__(2);
-
-var _Bishop = __webpack_require__(0);
-
-var _Queen = __webpack_require__(4);
-
-var _King = __webpack_require__(1);
-
-var _Pawn = __webpack_require__(3);
-
 var _EmptyPiece = __webpack_require__(10);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // :piece:
-
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Cell = exports.Cell = function (_React$Component) {
     _inherits(Cell, _React$Component);
@@ -633,7 +601,7 @@ var Cell = exports.Cell = function (_React$Component) {
             var $piece = void 0;
             if (this.state.piece !== null && typeof this.state.piece !== "undefined") {
                 // hmmmm ... !
-                $piece = new this.state.piece().render();
+                $piece = React.createElement(this.state.piece, { cell: this.state });
             } else {
                 $piece = React.createElement(_EmptyPiece.EmptyPiece, { Cell: this });
             }
@@ -735,12 +703,54 @@ var EmptyPiece = exports.EmptyPiece = function (_React$Component) {
     _createClass(EmptyPiece, [{
         key: "render",
         value: function render() {
-
             return null;
         }
     }]);
 
     return EmptyPiece;
+}(React.Component);
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Svg = exports.Svg = function (_React$Component) {
+    _inherits(Svg, _React$Component);
+
+    function Svg(props) {
+        _classCallCheck(this, Svg);
+
+        return _possibleConstructorReturn(this, (Svg.__proto__ || Object.getPrototypeOf(Svg)).call(this, props));
+    }
+
+    _createClass(Svg, [{
+        key: "render",
+        value: function render() {
+
+            return React.createElement(
+                "svg",
+                { viewBox: "0 0 45 45" },
+                React.createElement("use", { xlinkHref: "/svg/sprite.svg#" + this.props.name })
+            );
+        }
+    }]);
+
+    return Svg;
 }(React.Component);
 
 /***/ })
