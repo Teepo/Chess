@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
     entry : './src/Chess.js',
     output: {
@@ -9,6 +11,10 @@ module.exports = {
     resolve: {
         extensions: [".js"]
     },
+
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({minimize: true})
+    ],
 
     module: {
         loaders: [
