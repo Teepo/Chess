@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { EmptyPiece } from './pieces/EmptyPiece';
 
 export class Cell extends React.Component {

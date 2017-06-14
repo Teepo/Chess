@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Cell } from './Cell.js';
 
 export class Row extends React.Component {

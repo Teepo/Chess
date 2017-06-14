@@ -1,4 +1,7 @@
-import { Grid } from './components/Grid.js';
+import React    from 'react';
+import ReactDOM from 'react-dom';
+
+import { Grid } from './components/Grid';
 
 class Chess extends React.Component {
 

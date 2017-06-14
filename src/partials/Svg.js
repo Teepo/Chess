@@ -1,3 +1,5 @@
+import React from 'react';
+
 export class Svg extends React.Component {
 
     constructor(props) {

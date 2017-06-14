@@ -1,3 +1,5 @@
+import React from 'react';
+
 export class EmptyPiece extends React.Component {
 
     render() {

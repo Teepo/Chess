@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Svg } from './../../partials/Svg';
 
 export class Pawn extends React.Component {
