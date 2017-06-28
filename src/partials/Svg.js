@@ -14,3 +14,7 @@ export class Svg extends React.Component {
                 </svg>);
     }
 }
+
+Svg.propTypes = {
+    name : React.PropTypes.string
+};

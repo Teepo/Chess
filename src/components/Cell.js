@@ -45,17 +45,17 @@ export class Cell extends React.Component {
         this.props.App.cells[this.state.coords.x][this.state.coords.y] = this;
 
         let cellClassName = this.state.isBlack ? 'black' : '';
-            cellClassName += this.state.isHighlight ? ' overlay blue' : '';
+            cellClassName += this.state.isHighlight ? ' blue' : '';
 
         let $piece;
         if (this.state.piece !== null
           && typeof this.state.piece !== "undefined")
         {
             // hmmmm ... !
-            $piece = <this.state.piece cell={this.state} />
+            $piece = <this.state.piece App={this.props.App} cell={this.state} />
         }
         else {
-            $piece = <EmptyPiece Cell={this} />
+            $piece = <EmptyPiece App={this.props.App}  Cell={this} />
         }
 
         return <td className={cellClassName} onClick={this.onClick}>{$piece}</td>;

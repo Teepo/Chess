@@ -112,9 +112,9 @@ export class Grid extends React.Component {
 
         return <table className="grid">
                     <tbody>
-                        {[...Array(this.props.App.state.gridSize.x)].map(function(o, index) {
+                        {[...Array(this.props.App.state.gridSize.x)].map((o, index) => {
                             return <Row key={index} x={index} App={this.props.App} Grid={this} />
-                        }.bind(this))}
+                        })}
                     </tbody>
                 </table>;
     }
