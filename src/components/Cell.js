@@ -1,8 +1,8 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
 import { EmptyPiece } from './pieces/EmptyPiece';
 
-export class Cell extends React.Component {
+export class Cell extends Component {
 
     constructor(props) {
 

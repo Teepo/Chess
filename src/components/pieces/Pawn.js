@@ -1,8 +1,8 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
 import { Svg } from './../../partials/Svg';
 
-export class Pawn extends React.Component {
+export class Pawn extends Component {
 
     constructor(props) {
 

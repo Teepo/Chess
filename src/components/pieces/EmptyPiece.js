@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-export class EmptyPiece extends React.Component {
+export class EmptyPiece extends Component {
 
     render() {
         return null;

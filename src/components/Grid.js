@@ -1,4 +1,4 @@
-import React from 'react';
+import { h, render, Component } from 'preact';
 
 import { Row } from './Row.js';
 
@@ -10,7 +10,7 @@ import { Queen  } from './pieces/Queen.js';
 import { King   } from './pieces/King.js';
 import { Pawn   } from './pieces/Pawn.js';
 
-export class Grid extends React.Component {
+export class Grid extends Component {
 
     constructor(props) {
 

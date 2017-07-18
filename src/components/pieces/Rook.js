@@ -1,10 +1,10 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
 import { Svg } from './../../partials/Svg';
 
-export class Rook extends React.Component {
+export class Rook extends Component {
 
-    constructor(props: object) {
+    constructor(props) {
 
         super(props);
 
@@ -46,9 +46,4 @@ export class Rook extends React.Component {
                     <Svg name={ `rook${this.props.cell.isBlack ? '-black' : '-white'}` } />
                 </div>;
     }
-}
-
-Rook.propTypes = {
-    App  : React.PropTypes.object,
-    cell : React.PropTypes.object
 }

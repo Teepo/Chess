@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-export class Svg extends React.Component {
+export class Svg extends Component {
 
     constructor(props) {
 
@@ -9,12 +9,8 @@ export class Svg extends React.Component {
 
     render() {
 
-        return (<svg viewBox="0 0 45 45">
+        return <svg viewBox="0 0 45 45">
                   <use xlinkHref={ `/svg/sprite.svg#${this.props.name}` } />
-                </svg>);
+                </svg>;
     }
 }
-
-Svg.propTypes = {
-    name : React.PropTypes.string
-};

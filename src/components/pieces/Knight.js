@@ -1,8 +1,8 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
 import { Svg } from './../../partials/Svg';
 
-export class Knight extends React.Component {
+export class Knight extends Component {
 
     constructor(props) {
 

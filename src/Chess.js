@@ -1,9 +1,8 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
+import { h, render, Component } from 'preact';
 
 import { Grid } from './components/Grid';
 
-class Chess extends React.Component {
+class Chess extends Component {
 
     constructor(props) {
 
@@ -42,6 +41,6 @@ class Chess extends React.Component {
     }
 }
 
-ReactDOM.render(<Chess />,
+render(<Chess />,
     document.getElementById('app')
 );
