@@ -14,6 +14,27 @@ export default {
 
     props: {
         cell : { required : true }
+    },
+
+    methods : {
+
+        clickHandler : function() {
+
+            this.cell.isSelected = !this.cell.isSelected;
+
+            let nexts = [];
+
+            this.$parent.getDiagonalTopLeft(this.cell).map(cell => { nexts.push(cell); });
+            this.$parent.getDiagonalTopRight(this.cell).map(cell => { nexts.push(cell); });
+            this.$parent.getDiagonalBottomRight(this.cell).map(cell => { nexts.push(cell); });
+            this.$parent.getDiagonalBottomLeft(this.cell).map(cell => { nexts.push(cell); });
+
+            nexts = nexts.flat().filter(cell => !!cell);
+
+            this.$parent.resetHighlightAndSelectedState(this.cell, nexts);
+
+            this.$parent.highlightCell(nexts, this.cell.isSelected);
+        }
     }
 }
 </script>

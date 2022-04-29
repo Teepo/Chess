@@ -61,6 +61,158 @@ export default {
             return this.getPieceComponent() !== 'EmptyPiece';
         },
 
+        getHorizontalRight(cell) {
+
+            const nexts = [];
+
+            let i = 1;
+            let c;
+            while (c = this.$root.board[cell.x][cell.y+i]) {
+
+                i++;
+
+                if (c.hasPiece())
+                    break;
+
+                nexts.push(c);
+            }
+
+            return nexts;
+        },
+
+        getHorizontalLeft(cell) {
+
+            const nexts = [];
+
+            let i = 1;
+            let c;
+            while (c = this.$root.board[cell.x][cell.y-i]) {
+
+                i++;
+
+                if (c.hasPiece())
+                    break;
+
+                nexts.push(c);
+            }
+
+            return nexts;
+        },
+
+        getVerticalBottom(cell) {
+
+            const nexts = [];
+
+            let i = 1;
+            let c;
+            while (c = this.$root.board[cell.x+i][cell.y]) {
+
+                i++;
+
+                if (c.hasPiece())
+                    break;
+
+                nexts.push(c);
+            }
+
+            return nexts;
+        },
+
+        getVerticalTop(cell) {
+
+            const nexts = [];
+
+            let i = 1;
+            let c;
+            while (c = this.$root.board[cell.x-i][cell.y]) {
+
+                i++;
+
+                if (c.hasPiece())
+                    break;
+
+                nexts.push(c);
+            }
+
+            return nexts;
+        },
+
+        getDiagonalTopLeft(cell) {
+
+            const nexts = [];
+
+            let i = 1;
+            let c;
+            while (c = this.$root.board[cell.x-i][cell.y-i]) {
+
+                i++;
+
+                if (c.hasPiece())
+                    break;
+
+                nexts.push(c);
+            }
+
+            return nexts;
+        },
+
+        getDiagonalTopRight(cell) {
+
+            const nexts = [];
+
+            let i = 1;
+            let c;
+            while (c = this.$root.board[cell.x-i][cell.y+i]) {
+
+                i++;
+
+                if (c.hasPiece())
+                    break;
+
+                nexts.push(c);
+            }
+
+            return nexts;
+        },
+
+        getDiagonalBottomRight(cell) {
+
+            const nexts = [];
+
+            let i = 1;
+            let c;
+            while (c = this.$root.board[cell.x+i][cell.y+i]) {
+
+                i++;
+
+                if (c.hasPiece())
+                    break;
+
+                nexts.push(c);
+            }
+
+            return nexts;
+        },
+
+        getDiagonalBottomLeft(cell) {
+
+            const nexts = [];
+
+            let i = 1;
+            let c;
+            while (c = this.$root.board[cell.x+i][cell.y-i]) {
+
+                i++;
+
+                if (c.hasPiece())
+                    break;
+
+                nexts.push(c);
+            }
+
+            return nexts;
+        },
+
         /**
          * @param Cell        currentCell
          * @param array<Cell> nexts
