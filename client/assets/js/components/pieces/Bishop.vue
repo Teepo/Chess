@@ -1,5 +1,7 @@
 <template>
-    <Svg :name="`bishop${this.cell.isBlack ? '-black' : '-white'}`" />
+    <div @click="clickHandler">
+        <Svg :name="`bishop${this.cell.isBlack ? '-black' : '-white'}`" />
+    </div>
 </template>
 
 <script>
@@ -12,7 +14,7 @@ export default {
     
     components : { Svg },
 
-    props: {
+    props : {
         cell : { required : true }
     },
 

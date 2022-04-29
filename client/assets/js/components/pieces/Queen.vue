@@ -14,11 +14,11 @@ export default {
     
     components : { Svg },
 
-    props: {
+    props : {
         cell : { required : true }
     },
 
-    methods: {
+    methods : {
 
         clickHandler : function() {
 

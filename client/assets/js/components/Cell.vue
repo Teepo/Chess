@@ -67,7 +67,7 @@ export default {
 
             let i = 1;
             let c;
-            while (c = this.$root.board[cell.x][cell.y+i]) {
+            while (c = this.$root.board[cell.x]?.[cell.y+i]) {
 
                 i++;
 
@@ -86,7 +86,7 @@ export default {
 
             let i = 1;
             let c;
-            while (c = this.$root.board[cell.x][cell.y-i]) {
+            while (c = this.$root.board[cell.x]?.[cell.y-i]) {
 
                 i++;
 
@@ -105,7 +105,7 @@ export default {
 
             let i = 1;
             let c;
-            while (c = this.$root.board[cell.x+i][cell.y]) {
+            while (c = this.$root.board[cell.x+i]?.[cell.y]) {
 
                 i++;
 
@@ -124,7 +124,7 @@ export default {
 
             let i = 1;
             let c;
-            while (c = this.$root.board[cell.x-i][cell.y]) {
+            while (c = this.$root.board[cell.x-i]?.[cell.y]) {
 
                 i++;
 
@@ -143,7 +143,7 @@ export default {
 
             let i = 1;
             let c;
-            while (c = this.$root.board[cell.x-i][cell.y-i]) {
+            while (c = this.$root.board[cell.x-i]?.[cell.y-i]) {
 
                 i++;
 
@@ -162,7 +162,7 @@ export default {
 
             let i = 1;
             let c;
-            while (c = this.$root.board[cell.x-i][cell.y+i]) {
+            while (c = this.$root.board[cell.x-i]?.[cell.y+i]) {
 
                 i++;
 
@@ -181,7 +181,8 @@ export default {
 
             let i = 1;
             let c;
-            while (c = this.$root.board[cell.x+i][cell.y+i]) {
+
+            while (c = this.$root.board[cell.x+i]?.[cell.y+i]) {
 
                 i++;
 
@@ -200,7 +201,7 @@ export default {
 
             let i = 1;
             let c;
-            while (c = this.$root.board[cell.x+i][cell.y-i]) {
+            while (c = this.$root.board[cell.x+i]?.[cell.y-i]) {
 
                 i++;
 
