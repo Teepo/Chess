@@ -1,22 +1,18 @@
 {
+  "name": "chess",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Teepo/Chess.git",
+  "author": "Anthony Ribeiro",
+  "license": "MIT",
   "scripts": {
-    "start": "npm run js_maker & npm run sass_watcher & npm run server",
-    "server": "./node_modules/serve/bin/serve.js ./public/",
-    "js_maker": "webpack --progress --colors --watch --debug",
-    "sass_watcher": "sass --watch ./public/css/",
-    "jsdoc": "./node_modules/jsdoc/jsdoc.js -c ./.jsdoc.json"
+    "start:socket": "nodemon server/index.js",
+    "start:web": "./node_modules/serve/bin/serve.js ./client/public/"
   },
   "dependencies": {
-    "babel-cli": "^6.16.0",
-    "babel-loader": "^7.1.1",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.5.1",
-    "babel-preset-flow": "^6.23.0",
-    "docdash": "^0.4.0",
-    "eslint": "^4.1.1",
-    "jsdoc": "^3.4.3",
-    "preact": "^8.2.1",
-    "serve": "5.2.2",
-    "webpack": "^3.0.0"
+    "express": "^4.18.0",
+    "nodemon": "^2.0.15",
+    "serve": "^13.0.2",
+    "socket.io": "^4.5.0"
   }
 }
