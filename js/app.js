@@ -23190,13 +23190,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      * @param array<Cell> nexts
      */
     resetHighlightAndSelectedState: function resetHighlightAndSelectedState(currentCell, nexts) {
+      console.log('board', this.$root.board);
+      console.log('nexts', nexts);
       this.$root.board.map(function (row) {
         row.map(function (cell) {
           // On exclut la piece et les targets
           // car on va les toggle plus tard
           if (cell === currentCell || nexts.includes(cell)) {
             return;
-          }
+          } // console.log('cell to clean', cell, cell.x, cell.y);
+
 
           cell.isSelected = false;
           cell.isHighlight = false;
@@ -23492,10 +23495,10 @@ __webpack_require__.r(__webpack_exports__);
       var board = this.$root.board;
       var x = this.cell.x;
       var y = this.cell.y;
-      console.log(x, y, board);
       var nexts = [(_board = board[x + 2]) === null || _board === void 0 ? void 0 : _board[y + 1], (_board2 = board[x + 2]) === null || _board2 === void 0 ? void 0 : _board2[y - 1], (_board3 = board[x - 2]) === null || _board3 === void 0 ? void 0 : _board3[y + 1], (_board4 = board[x - 2]) === null || _board4 === void 0 ? void 0 : _board4[y - 1], (_board5 = board[x + 1]) === null || _board5 === void 0 ? void 0 : _board5[y + 2], (_board6 = board[x + 1]) === null || _board6 === void 0 ? void 0 : _board6[y - 2], (_board7 = board[x - 1]) === null || _board7 === void 0 ? void 0 : _board7[y + 2], (_board8 = board[x - 1]) === null || _board8 === void 0 ? void 0 : _board8[y - 2]].filter(function (cell) {
         return !!cell;
       });
+      this.cell.resetHighlightAndSelectedState(this.cell, nexts);
       this.cell.highlightCell(nexts, this.cell.isSelected);
     }
   }
