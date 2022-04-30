@@ -9,13 +9,19 @@
 import Svg from './../Svg';
 
 export default {
-
-    name : "King",
     
     components : { Svg },
 
     props: {
         cell : { required : true }
+    },
+
+    data : () => {
+        return { name : 'King' };
+    },
+
+    mounted() {
+        this.cell.updatePiece(this);
     },
 
     methods: {

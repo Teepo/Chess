@@ -5,9 +5,7 @@
         'cell--is-selected'  : this.isSelected,
         'cell--has-piece'    : hasPiece()
     }" @click="clickHandler">
-        <KeepAlive>
-            <component :is="getPieceComponent()" :cell="this" />
-        </KeepAlive>
+        <component :is="getPieceComponent()" :cell="this" />
     </div>
 </template>
 
@@ -57,7 +55,7 @@ export default {
     methods : {
 
         getPieceComponent() {
-            return this.board[this.x][this.y];
+            return this.piece?.name ?? this.board[this.x][this.y];
         },
 
         hasPiece() {
@@ -314,26 +312,22 @@ export default {
 
                 const oldX = cellSelected.x;
                 const oldY = cellSelected.y;
-                
+
                 const oldPiece = this.$root.board[this.x][this.y];
 
                 cellSelected.x = this.x;
                 cellSelected.y = this.y;
-                this.$root.board[this.x][this.y] = cellSelected;
 
-                /*
-                oldPiece.x = oldX;
-                oldPiece.y = oldY;
-                this.board[oldX][oldY] = oldPiece;
-                */
+                console.log('oldPiece', oldPiece.getPieceComponent());
+
+                this.$root.board[this.x][this.y] = cellSelected;
+                this.$root.board[oldX][oldY] = oldPiece;
+
+                console.log(oldX, oldY);
+
+                console.log(this.$root.board, this.$root.board[oldX][oldY].getPieceComponent(), oldPiece.getPieceComponent());
 
                 this.updatePiece(cellSelected.piece);
-
-                cellSelected.$forceUpdate();
-                this.$forceUpdate();
-                this.$root.$forceUpdate();
-
-                console.log(cellSelected.getPieceComponent(), oldPiece.getPieceComponent());
 
                 this.clearHighlightAndSelectedState();
             }

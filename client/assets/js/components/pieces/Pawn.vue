@@ -10,8 +10,6 @@ import Svg from './../Svg';
 
 export default {
 
-    name : 'Pawn',
-
     components : { Svg },
 
     props: {
@@ -21,8 +19,13 @@ export default {
     data : () => {
 
         return {
+            name    : 'Pawn',
             isMoved : false
         }
+    },
+
+    mounted() {
+        this.cell.updatePiece(this);
     },
 
     methods: {

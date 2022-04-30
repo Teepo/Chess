@@ -4,10 +4,16 @@
 
 export default {
 
-    name : "EmptyPiece",
-
     props: {
-        cell : { required : true }
-    }
+        cell : { required : true },
+    },
+
+    data : () => {
+        return { name : 'EmptyPiece' };
+    },
+
+    mounted() {
+        this.cell.updatePiece(this);
+    },
 }
 </script>

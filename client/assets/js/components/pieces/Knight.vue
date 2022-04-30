@@ -18,6 +18,14 @@ export default {
         cell : { required : true }
     },
 
+    data : () => {
+        return { name : 'Knight' };
+    },
+
+    mounted() {
+        this.cell.updatePiece(this);
+    },
+
     methods : {
 
         clickHandler : function() {
