@@ -3,7 +3,7 @@
         <template v-for="(item, x) in [...Array(this.gridSize.x)]">
             <Cell
                 v-for="(item, y) in [...Array(this.gridSize.y)]"
-                :key="y" :x="x" :y="y"
+                :key="y" :_x="x" :_y="y"
                 ref="board"
             />
         </template>

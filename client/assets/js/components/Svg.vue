@@ -11,7 +11,7 @@ export default {
         name: String,
         url: {
             type: String,
-            default: '/svg/sprite.svg'
+            default: `${window.location.href}svg/sprite.svg`
         },
         className: {
             type: String

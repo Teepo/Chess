@@ -26,23 +26,21 @@ export default {
 
             let nexts = [];
 
-            console.log('horizontal right', this.cell);
+            this.cell.getHorizontalRight(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getHorizontalLeft(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getVerticalBottom(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getVerticalTop(this.cell).map(cell => { nexts.push(cell); });
 
-            this.$parent.getHorizontalRight(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getHorizontalLeft(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getVerticalBottom(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getVerticalTop(this.cell).map(cell => { nexts.push(cell); });
-
-            this.$parent.getDiagonalTopLeft(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getDiagonalTopRight(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getDiagonalBottomRight(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getDiagonalBottomLeft(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getDiagonalTopLeft(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getDiagonalTopRight(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getDiagonalBottomRight(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getDiagonalBottomLeft(this.cell).map(cell => { nexts.push(cell); });
 
             nexts = nexts.flat().filter(cell => !!cell);
 
-            this.$parent.resetHighlightAndSelectedState(this.cell, nexts);
+            this.cell.resetHighlightAndSelectedState(this.cell, nexts);
 
-            this.$parent.highlightCell(nexts, this.cell.isSelected);
+            this.cell.highlightCell(nexts, this.cell.isSelected);
         }
     }
 }

@@ -6,8 +6,6 @@
 
 <script>
 
-import { mapGetters } from 'vuex';
-
 import Svg from './../Svg';
 
 export default {
@@ -18,10 +16,6 @@ export default {
 
     props: {
         cell : { required : true }
-    },
-
-    computed : {
-        ...mapGetters(['board'])
     },
 
     data : () => {
@@ -47,7 +41,7 @@ export default {
 
             const nexts = [next1, next2];
 
-            this.$parent.resetHighlightAndSelectedState(this.cell, nexts);
+            this.cell.resetHighlightAndSelectedState(this.cell, nexts);
 
             // La piece devant est prise, le pion peut pas bouger
             if (next1.hasPiece()) {
@@ -59,7 +53,7 @@ export default {
                 return;
             }
 
-            this.$parent.highlightCell(nexts, this.cell.isSelected);
+            this.cell.highlightCell(nexts, this.cell.isSelected);
         }
     }
 }

@@ -18,6 +18,10 @@ export default {
         cell : { required : true }
     },
 
+    mounted() {
+        this.cell.updatePiece(this);
+    },
+
     methods : {
 
         clickHandler : function() {
@@ -26,16 +30,16 @@ export default {
 
             let nexts = [];
 
-            this.$parent.getDiagonalTopLeft(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getDiagonalTopRight(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getDiagonalBottomRight(this.cell).map(cell => { nexts.push(cell); });
-            this.$parent.getDiagonalBottomLeft(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getDiagonalTopLeft(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getDiagonalTopRight(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getDiagonalBottomRight(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getDiagonalBottomLeft(this.cell).map(cell => { nexts.push(cell); });
 
             nexts = nexts.flat().filter(cell => !!cell);
 
-            this.$parent.resetHighlightAndSelectedState(this.cell, nexts);
+            this.cell.resetHighlightAndSelectedState(this.cell, nexts);
 
-            this.$parent.highlightCell(nexts, this.cell.isSelected);
+            this.cell.highlightCell(nexts, this.cell.isSelected);
         }
     }
 }

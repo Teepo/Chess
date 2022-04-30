@@ -5,7 +5,9 @@
         'cell--is-selected'  : this.isSelected,
         'cell--has-piece'    : hasPiece()
     }" @click="clickHandler">
-        <component :is="getPieceComponent()" :cell="getInstance()" />
+        <KeepAlive>
+            <component :is="getPieceComponent()" :cell="this" />
+        </KeepAlive>
     </div>
 </template>
 
@@ -27,8 +29,8 @@ export default {
     components : { EmptyPiece, Rook, Knight, Bishop, Queen, King, Pawn },
 
     props: {
-        x : { type : Number,  required : true },
-        y : { type : Number,  required : true },
+        _x : { type : Number,  required : true },
+        _y : { type : Number,  required : true },
     },
 
     computed : {
@@ -44,14 +46,15 @@ export default {
             isSelected  : false,
 
             number : this.y + 1,
+
+            x : this._x,
+            y : this._y,
+
+            piece : null,
         };
     },
 
     methods : {
-
-        getInstance: function() {
-            return this;
-        },
 
         getPieceComponent() {
             return this.board[this.x][this.y];
@@ -61,6 +64,13 @@ export default {
             return this.getPieceComponent() !== 'EmptyPiece';
         },
 
+        updatePiece(piece) {
+            this.piece = piece;
+        },
+
+        /**
+         * @return array<Cell>
+         */
         getHorizontalRight(cell) {
 
             const nexts = [];
@@ -80,6 +90,9 @@ export default {
             return nexts;
         },
 
+        /**
+         * @return array<Cell>
+         */
         getHorizontalLeft(cell) {
 
             const nexts = [];
@@ -99,6 +112,9 @@ export default {
             return nexts;
         },
 
+        /**
+         * @return array<Cell>
+         */
         getVerticalBottom(cell) {
 
             const nexts = [];
@@ -118,6 +134,9 @@ export default {
             return nexts;
         },
 
+        /**
+         * @return array<Cell>
+         */
         getVerticalTop(cell) {
 
             const nexts = [];
@@ -137,6 +156,9 @@ export default {
             return nexts;
         },
 
+        /**
+         * @return array<Cell>
+         */
         getDiagonalTopLeft(cell) {
 
             const nexts = [];
@@ -156,6 +178,9 @@ export default {
             return nexts;
         },
 
+        /**
+         * @return array<Cell>
+         */
         getDiagonalTopRight(cell) {
 
             const nexts = [];
@@ -175,6 +200,9 @@ export default {
             return nexts;
         },
 
+        /**
+         * @return array<Cell>
+         */
         getDiagonalBottomRight(cell) {
 
             const nexts = [];
@@ -195,6 +223,9 @@ export default {
             return nexts;
         },
 
+        /**
+         * @return array<Cell>
+         */
         getDiagonalBottomLeft(cell) {
 
             const nexts = [];
@@ -212,6 +243,16 @@ export default {
             }
 
             return nexts;
+        },
+
+        clearHighlightAndSelectedState() {
+
+            this.$root.board.map(row => {
+                row.map(cell => {
+                    cell.isSelected  = false;
+                    cell.isHighlight = false;
+                });
+            });
         },
 
         /**
@@ -257,11 +298,45 @@ export default {
 
         clickHandler(event) {
 
-            if (this.hasPiece()) {
+            if (this.hasPiece() || this.isHighlight) {
                 event.stopPropagation();
             }
 
-            console.log('click on cell', this.isHighlight);
+            console.log('click on cell', this.isHighlight, );
+
+            if (this.isHighlight) {
+
+                const cellSelected = this.$root.board.find(row => {
+                    return row.find(cell => cell.isSelected );
+                }).find(cell => cell.isSelected);
+
+                console.log('selected cell', cellSelected);
+
+                const oldX = cellSelected.x;
+                const oldY = cellSelected.y;
+                
+                const oldPiece = this.$root.board[this.x][this.y];
+
+                cellSelected.x = this.x;
+                cellSelected.y = this.y;
+                this.$root.board[this.x][this.y] = cellSelected;
+
+                /*
+                oldPiece.x = oldX;
+                oldPiece.y = oldY;
+                this.board[oldX][oldY] = oldPiece;
+                */
+
+                this.updatePiece(cellSelected.piece);
+
+                cellSelected.$forceUpdate();
+                this.$forceUpdate();
+                this.$root.$forceUpdate();
+
+                console.log(cellSelected.getPieceComponent(), oldPiece.getPieceComponent());
+
+                this.clearHighlightAndSelectedState();
+            }
         }
     },
 

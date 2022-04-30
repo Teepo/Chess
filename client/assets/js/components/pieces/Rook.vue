@@ -1,10 +1,10 @@
-<template @click="clickHandler">
-    <Svg :name="`rook${this.cell.isBlack ? '-black' : '-white'}`" />
+<template>
+    <div @click="clickHandler">
+        <Svg :name="`rook${this.cell.isBlack ? '-black' : '-white'}`" />
+    </div>
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex';
 
 import Svg from './../Svg';
 
@@ -18,28 +18,28 @@ export default {
         cell : { required : true }
     },
 
-    computed : {
-        ...mapGetters(['gridSize', 'board'])
+    mounted() {
+        this.cell.updatePiece(this);
     },
 
     methods : {
 
         clickHandler : function() {
 
-            const x = this.cell.x;
-            const y = this.cell.y;
+            this.cell.isSelected = !this.cell.isSelected;
 
-            let cell;
-            for (let i = x + 1; i <= this.gridSize.x; i++) {
-                
-                cell = this.board[i][y];
+            let nexts = [];
 
-                if (cell.piece !== null) {
-                    return;
-                }
+            this.cell.getHorizontalRight(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getHorizontalLeft(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getVerticalBottom(this.cell).map(cell => { nexts.push(cell); });
+            this.cell.getVerticalTop(this.cell).map(cell => { nexts.push(cell); });
 
-                cell.isHighlight = true;
-            }
+            nexts = nexts.flat().filter(cell => !!cell);
+
+            this.cell.resetHighlightAndSelectedState(this.cell, nexts);
+
+            this.cell.highlightCell(nexts, this.cell.isSelected);
         }
     }
 }

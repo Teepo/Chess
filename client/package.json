@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "yarn encore dev",
+    "deploy": "gh-pages -d public",
     "jsdoc": "./node_modules/jsdoc/jsdoc.js -c ./.jsdoc.json"
   },
   "dependencies": {
@@ -11,6 +12,7 @@
     "babel-preset-env": "^1.7.0",
     "docdash": "^1.2.0",
     "eslint": "^8.14.0",
+    "gh-pages": "^3.2.3",
     "jsdoc": "^3.6.10",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.51.0",

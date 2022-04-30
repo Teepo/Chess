@@ -8,6 +8,6 @@ export default {
 
     props: {
         cell : { required : true }
-    },
+    }
 }
 </script>
