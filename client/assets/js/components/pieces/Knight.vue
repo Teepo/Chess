@@ -29,8 +29,6 @@ export default {
             const x = this.cell.x;
             const y = this.cell.y;
 
-            console.log(x, y, board);
-
             const nexts = [
                 board[x + 2]?.[y + 1],
                 board[x + 2]?.[y - 1],
@@ -43,6 +41,8 @@ export default {
                 board[x - 1]?.[y - 2]
             ]
             .filter(cell => !!cell);
+
+            this.cell.resetHighlightAndSelectedState(this.cell, nexts);
 
             this.cell.highlightCell(nexts, this.cell.isSelected);
         }

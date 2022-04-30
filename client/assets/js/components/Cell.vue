@@ -302,7 +302,7 @@ export default {
                 event.stopPropagation();
             }
 
-            console.log('click on cell', this.isHighlight, );
+            console.log('click on cell', this.isHighlight);
 
             if (this.isHighlight) {
 
