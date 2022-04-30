@@ -11,11 +11,11 @@ export default createStore({
             [ 'Rook', 'Knight', 'Bishop', 'Queen', 'King', 'Bishop', 'Knight', 'Rook' ],
             [ 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn' ],
             [ 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece' ], 
-            [ 'EmptyPiece', 'Pawn', 'EmptyPiece', 'EmptyPiece', 'Bishop', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece' ],
+            [ 'EmptyPiece', 'Pawn', 'EmptyPiece', 'EmptyPiece', 'Bishop', 'EmptyPiece', 'King', 'EmptyPiece' ],
             [ 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'Knight', 'EmptyPiece', 'EmptyPiece' ],
             [ 'Pawn', 'EmptyPiece', 'Pawn', 'EmptyPiece', 'Pawn', 'EmptyPiece', 'EmptyPiece', 'Pawn' ],
             [ 'Pawn', 'Pawn', 'EmptyPiece', 'Pawn', 'Queen', 'Pawn', 'Pawn', 'EmptyPiece' ],
-            [ 'Rook', 'Knight', 'Bishop', 'EmptyPiece', 'King', 'EmptyPiece', 'EmptyPiece', 'Rook' ]
+            [ 'Rook', 'Knight', 'Bishop', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'Rook' ]
         ]
     },
     getters : {
