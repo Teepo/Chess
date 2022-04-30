@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
       x: 8,
       y: 8
     },
-    board: [['Rook', 'Knight', 'Bishop', 'Queen', 'King', 'Bishop', 'Knight', 'Rook'], ['Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn'], ['EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece'], ['EmptyPiece', 'Pawn', 'EmptyPiece', 'EmptyPiece', 'Bishop', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece'], ['EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'Knight', 'EmptyPiece', 'EmptyPiece'], ['Pawn', 'EmptyPiece', 'Pawn', 'EmptyPiece', 'Pawn', 'EmptyPiece', 'EmptyPiece', 'Pawn'], ['Pawn', 'Pawn', 'EmptyPiece', 'Pawn', 'Queen', 'Pawn', 'Pawn', 'EmptyPiece'], ['Rook', 'Knight', 'Bishop', 'EmptyPiece', 'King', 'EmptyPiece', 'EmptyPiece', 'Rook']]
+    board: [['Rook', 'Knight', 'Bishop', 'Queen', 'King', 'Bishop', 'Knight', 'Rook'], ['Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn'], ['EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece'], ['EmptyPiece', 'Pawn', 'EmptyPiece', 'EmptyPiece', 'Bishop', 'EmptyPiece', 'King', 'EmptyPiece'], ['EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'Knight', 'EmptyPiece', 'EmptyPiece'], ['Pawn', 'EmptyPiece', 'Pawn', 'EmptyPiece', 'Pawn', 'EmptyPiece', 'EmptyPiece', 'Pawn'], ['Pawn', 'Pawn', 'EmptyPiece', 'Pawn', 'Queen', 'Pawn', 'Pawn', 'EmptyPiece'], ['Rook', 'Knight', 'Bishop', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'EmptyPiece', 'Rook']]
   },
   getters: {
     gridSize: function gridSize(state) {
@@ -23190,16 +23190,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      * @param array<Cell> nexts
      */
     resetHighlightAndSelectedState: function resetHighlightAndSelectedState(currentCell, nexts) {
-      console.log('board', this.$root.board);
-      console.log('nexts', nexts);
       this.$root.board.map(function (row) {
         row.map(function (cell) {
           // On exclut la piece et les targets
           // car on va les toggle plus tard
           if (cell === currentCell || nexts.includes(cell)) {
             return;
-          } // console.log('cell to clean', cell, cell.x, cell.y);
-
+          }
 
           cell.isSelected = false;
           cell.isHighlight = false;
@@ -23458,6 +23455,22 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     cell: {
       required: true
+    }
+  },
+  methods: {
+    clickHandler: function clickHandler() {
+      var _board, _board2, _board3, _board4, _board5, _board6, _board$x, _board$x2;
+
+      this.cell.isSelected = !this.cell.isSelected;
+      var board = this.$root.board;
+      var x = this.cell.x;
+      var y = this.cell.y;
+      var nexts = [(_board = board[x + 1]) === null || _board === void 0 ? void 0 : _board[y + 1], (_board2 = board[x + 1]) === null || _board2 === void 0 ? void 0 : _board2[y - 1], (_board3 = board[x - 1]) === null || _board3 === void 0 ? void 0 : _board3[y + 1], (_board4 = board[x - 1]) === null || _board4 === void 0 ? void 0 : _board4[y - 1], (_board5 = board[x + 1]) === null || _board5 === void 0 ? void 0 : _board5[y], (_board6 = board[x - 1]) === null || _board6 === void 0 ? void 0 : _board6[y], (_board$x = board[x]) === null || _board$x === void 0 ? void 0 : _board$x[y + 1], (_board$x2 = board[x]) === null || _board$x2 === void 0 ? void 0 : _board$x2[y - 1]].filter(function (cell) {
+        return !!cell;
+      });
+      console.log('king next', nexts);
+      this.cell.resetHighlightAndSelectedState(this.cell, nexts);
+      this.cell.highlightCell(nexts, this.cell.isSelected);
     }
   }
 });
@@ -23864,11 +23877,15 @@ __webpack_require__.r(__webpack_exports__);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Svg = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Svg");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Svg, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.clickHandler && $options.clickHandler.apply($options, arguments);
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Svg, {
     name: "king".concat(this.cell.isBlack ? '-black' : '-white')
   }, null, 8
   /* PROPS */
-  , ["name"]);
+  , ["name"])]);
 }
 
 /***/ }),
