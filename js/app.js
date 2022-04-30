@@ -23016,7 +23016,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     getPieceComponent: function getPieceComponent() {
-      return this.board[this.x][this.y];
+      var _this$piece$name, _this$piece;
+
+      return (_this$piece$name = (_this$piece = this.piece) === null || _this$piece === void 0 ? void 0 : _this$piece.name) !== null && _this$piece$name !== void 0 ? _this$piece$name : this.board[this.x][this.y];
     },
     hasPiece: function hasPiece() {
       return this.getPieceComponent() !== 'EmptyPiece';
@@ -23240,18 +23242,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var oldPiece = this.$root.board[this.x][this.y];
         cellSelected.x = this.x;
         cellSelected.y = this.y;
+        console.log('oldPiece', oldPiece.getPieceComponent());
         this.$root.board[this.x][this.y] = cellSelected;
-        /*
-        oldPiece.x = oldX;
-        oldPiece.y = oldY;
-        this.board[oldX][oldY] = oldPiece;
-        */
-
+        this.$root.board[oldX][oldY] = oldPiece;
+        console.log(oldX, oldY);
+        console.log(this.$root.board, this.$root.board[oldX][oldY].getPieceComponent(), oldPiece.getPieceComponent());
         this.updatePiece(cellSelected.piece);
-        cellSelected.$forceUpdate();
-        this.$forceUpdate();
-        this.$root.$forceUpdate();
-        console.log(cellSelected.getPieceComponent(), oldPiece.getPieceComponent());
         this.clearHighlightAndSelectedState();
       }
     }
@@ -23373,7 +23369,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Svg */ "./assets/js/components/Svg.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Bishop",
   components: {
     Svg: _Svg__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -23381,6 +23376,11 @@ __webpack_require__.r(__webpack_exports__);
     cell: {
       required: true
     }
+  },
+  data: function data() {
+    return {
+      name: 'Bishop'
+    };
   },
   mounted: function mounted() {
     this.cell.updatePiece(this);
@@ -23424,11 +23424,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "EmptyPiece",
   props: {
     cell: {
       required: true
     }
+  },
+  data: function data() {
+    return {
+      name: 'EmptyPiece'
+    };
+  },
+  mounted: function mounted() {
+    this.cell.updatePiece(this);
   }
 });
 
@@ -23448,7 +23455,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Svg */ "./assets/js/components/Svg.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "King",
   components: {
     Svg: _Svg__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -23456,6 +23462,14 @@ __webpack_require__.r(__webpack_exports__);
     cell: {
       required: true
     }
+  },
+  data: function data() {
+    return {
+      name: 'King'
+    };
+  },
+  mounted: function mounted() {
+    this.cell.updatePiece(this);
   },
   methods: {
     clickHandler: function clickHandler() {
@@ -23468,7 +23482,6 @@ __webpack_require__.r(__webpack_exports__);
       var nexts = [(_board = board[x + 1]) === null || _board === void 0 ? void 0 : _board[y + 1], (_board2 = board[x + 1]) === null || _board2 === void 0 ? void 0 : _board2[y - 1], (_board3 = board[x - 1]) === null || _board3 === void 0 ? void 0 : _board3[y + 1], (_board4 = board[x - 1]) === null || _board4 === void 0 ? void 0 : _board4[y - 1], (_board5 = board[x + 1]) === null || _board5 === void 0 ? void 0 : _board5[y], (_board6 = board[x - 1]) === null || _board6 === void 0 ? void 0 : _board6[y], (_board$x = board[x]) === null || _board$x === void 0 ? void 0 : _board$x[y + 1], (_board$x2 = board[x]) === null || _board$x2 === void 0 ? void 0 : _board$x2[y - 1]].filter(function (cell) {
         return !!cell;
       });
-      console.log('king next', nexts);
       this.cell.resetHighlightAndSelectedState(this.cell, nexts);
       this.cell.highlightCell(nexts, this.cell.isSelected);
     }
@@ -23499,6 +23512,14 @@ __webpack_require__.r(__webpack_exports__);
     cell: {
       required: true
     }
+  },
+  data: function data() {
+    return {
+      name: 'Knight'
+    };
+  },
+  mounted: function mounted() {
+    this.cell.updatePiece(this);
   },
   methods: {
     clickHandler: function clickHandler() {
@@ -23533,7 +23554,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Svg */ "./assets/js/components/Svg.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Pawn',
   components: {
     Svg: _Svg__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -23544,8 +23564,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      name: 'Pawn',
       isMoved: false
     };
+  },
+  mounted: function mounted() {
+    this.cell.updatePiece(this);
   },
   methods: {
     clickHandler: function clickHandler() {
@@ -23597,6 +23621,14 @@ __webpack_require__.r(__webpack_exports__);
     cell: {
       required: true
     }
+  },
+  data: function data() {
+    return {
+      name: 'Queen'
+    };
+  },
+  mounted: function mounted() {
+    this.cell.updatePiece(this);
   },
   methods: {
     clickHandler: function clickHandler() {
@@ -23651,7 +23683,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Svg */ "./assets/js/components/Svg.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Rook",
   components: {
     Svg: _Svg__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -23659,6 +23690,11 @@ __webpack_require__.r(__webpack_exports__);
     cell: {
       required: true
     }
+  },
+  data: function data() {
+    return {
+      name: 'Rook'
+    };
   },
   mounted: function mounted() {
     this.cell.updatePiece(this);
@@ -23714,11 +23750,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[0] || (_cache[0] = function () {
       return $options.clickHandler && $options.clickHandler.apply($options, arguments);
     })
-  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.KeepAlive, null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)($options.getPieceComponent()), {
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)($options.getPieceComponent()), {
     cell: this
-  }))], 1024
-  /* DYNAMIC_SLOTS */
-  ))], 2
+  }))], 2
   /* CLASS */
   );
 }
