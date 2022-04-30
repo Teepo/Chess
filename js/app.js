@@ -23349,7 +23349,7 @@ __webpack_require__.r(__webpack_exports__);
     name: String,
     url: {
       type: String,
-      "default": '/svg/sprite.svg'
+      "default": "".concat(window.location.href, "svg/sprite.svg")
     },
     className: {
       type: String
