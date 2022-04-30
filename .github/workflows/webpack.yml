@@ -15,20 +15,13 @@ jobs:
         node-version: [12.x, 14.x, 16.x]
     
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+    - uses: actions/checkout@v3
 
-      - name: Install
-        run: yarn
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Build
-        run: |
-          cd client && yarn && yarn run build
-
-      - name: Deploy to GH Page
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages
-          folder: dist
+    - name: Build
+      run: |
+        cd client && yarn && yarn run build
