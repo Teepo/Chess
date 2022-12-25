@@ -10,9 +10,9 @@
     "start:web": "./node_modules/serve/bin/serve.js ./client/public/"
   },
   "dependencies": {
-    "express": "^4.18.0",
-    "nodemon": "^2.0.15",
-    "serve": "^13.0.2",
-    "socket.io": "^4.5.0"
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "serve": "^14.1.2",
+    "socket.io": "^4.5.4"
   }
 }
